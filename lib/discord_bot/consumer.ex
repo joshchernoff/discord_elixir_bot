@@ -42,14 +42,13 @@ defmodule ElixirDocs do
           {_, _, _, _, _} ->
             false
         end)
-        |> dbg()
         |> case do
           [] ->
             "No documentation found for #{function_name}."
 
           functions ->
             Enum.map(
-              functions |> dbg(),
+              functions,
               fn
                 {{:function, fun, arrty}, _, [sig], %{"en" => desc}, _} ->
                   "[Function: #{module_name}.#{sig}](https://hexdocs.pm/elixir/1.18.1/#{module_name}.html##{fun}/#{arrty})"

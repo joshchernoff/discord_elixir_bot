@@ -1,5 +1,7 @@
 import Config
 
+config :logger, :console, metadata: [:shard, :guild, :channel], path: "/var/log/discord_bot.log"
+
 config :nostrum,
   token: System.get_env("DISCORD_BOT_TOKEN"),
   gateway_intents: [
